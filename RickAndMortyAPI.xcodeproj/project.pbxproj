@@ -11,6 +11,7 @@
 		E4D6B9C32B737542005846EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9C22B737542005846EC /* SceneDelegate.swift */; };
 		E4D6B9C52B737542005846EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9C42B737542005846EC /* MainViewController.swift */; };
 		E4D6B9CA2B737543005846EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D6B9C92B737543005846EC /* Assets.xcassets */; };
+		E4D6B9D92B737F72005846EC /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9D82B737F72005846EC /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		E4D6B9C42B737542005846EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E4D6B9C92B737543005846EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4D6B9CE2B737543005846EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4D6B9D82B737F72005846EC /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D6B9D42B737650005846EC /* Application */,
-				E4D6B9C42B737542005846EC /* MainViewController.swift */,
+				E4D6B9D62B7379BF005846EC /* MainScreen */,
 				E4D6B9D52B737659005846EC /* Resources */,
 			);
 			path = RickAndMortyAPI;
@@ -75,6 +77,23 @@
 				E4D6B9CE2B737543005846EC /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E4D6B9D62B7379BF005846EC /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6B9D72B737EE7005846EC /* Cell */,
+				E4D6B9C42B737542005846EC /* MainViewController.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		E4D6B9D72B737EE7005846EC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6B9D82B737F72005846EC /* CharacterCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +168,7 @@
 				E4D6B9C52B737542005846EC /* MainViewController.swift in Sources */,
 				E4D6B9C12B737542005846EC /* AppDelegate.swift in Sources */,
 				E4D6B9C32B737542005846EC /* SceneDelegate.swift in Sources */,
+				E4D6B9D92B737F72005846EC /* CharacterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
