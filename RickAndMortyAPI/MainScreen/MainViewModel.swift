@@ -5,8 +5,6 @@
 //  Created by Ruslan Shigapov on 07.02.2024.
 //
 
-import Foundation
-
 final class MainViewModel {
     
     private var heroes: [Hero] = []
