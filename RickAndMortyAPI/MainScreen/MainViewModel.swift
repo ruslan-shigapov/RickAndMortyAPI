@@ -27,4 +27,8 @@ final class MainViewModel {
     func getHeroCellViewModel(at indexPath: IndexPath) -> HeroCellViewModel {
         HeroCellViewModel(hero: heroes[indexPath.row])
     }
+    
+    func getDetailsViewModel(at indexPath: IndexPath) -> DetailsViewModel {
+        DetailsViewModel(hero: heroes[indexPath.row])
+    }
 }

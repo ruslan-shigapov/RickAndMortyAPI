@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class HeroCellViewModel {
+class HeroCellViewModel {
     
     var heroName: String {
         hero.name

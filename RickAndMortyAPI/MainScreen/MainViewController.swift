@@ -10,7 +10,7 @@ import Combine
 
 final class MainViewController: UIViewController {
     
-    private lazy var heroesTableView: UITableView = {
+    private let heroesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(HeroCell.self, forCellReuseIdentifier: "cell")
@@ -36,7 +36,7 @@ final class MainViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        title = "Rick and Morty"
+        title = "Rick and Morty etc."
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -85,6 +85,9 @@ extension MainViewController: UITableViewDelegate {
         didSelectRowAt indexPath: IndexPath
     ) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let detailsVC = DetailsViewController()
+        detailsVC.viewModel = viewModel.getDetailsViewModel(at: indexPath)
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 

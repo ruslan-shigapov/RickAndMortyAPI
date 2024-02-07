@@ -10,14 +10,7 @@ import Combine
 
 final class HeroCell: UITableViewCell {
     
-    private lazy var pictureImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .secondarySystemBackground
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true
-        return imageView
-    }()
+    private let pictureImageView = PictureImageView()
     
     private let nameLabel = UILabel()
     private let genderLabel = UILabel()

@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class DetailsViewModel {
+final class DetailsViewModel: HeroCellViewModel {
     
 }

@@ -18,6 +18,7 @@
 		E4D6B9E32B73B04E005846EC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9E22B73B04E005846EC /* NetworkManager.swift */; };
 		E4D6B9E62B73D3D3005846EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9E52B73D3D3005846EC /* DetailsViewController.swift */; };
 		E4D6B9E82B73D435005846EC /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9E72B73D435005846EC /* DetailsViewModel.swift */; };
+		E4D6B9EB2B73DBAC005846EC /* PictureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9EA2B73DBAC005846EC /* PictureImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E4D6B9E22B73B04E005846EC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E4D6B9E52B73D3D3005846EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E4D6B9E72B73D435005846EC /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		E4D6B9EA2B73DBAC005846EC /* PictureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				E4D6B9D42B737650005846EC /* Application */,
 				E4D6B9DC2B73A13D005846EC /* Models */,
+				E4D6B9E92B73DB84005846EC /* Views */,
 				E4D6B9D62B7379BF005846EC /* MainScreen */,
 				E4D6B9E42B73D3B6005846EC /* DetailsScreen */,
 				E4D6B9E12B73B03C005846EC /* Services */,
@@ -97,20 +100,20 @@
 		E4D6B9D62B7379BF005846EC /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E4D6B9D72B737EE7005846EC /* Cell */,
+				E4D6B9D72B737EE7005846EC /* Cells */,
 				E4D6B9C42B737542005846EC /* MainViewController.swift */,
 				E4D6B9DA2B73A046005846EC /* MainViewModel.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		E4D6B9D72B737EE7005846EC /* Cell */ = {
+		E4D6B9D72B737EE7005846EC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				E4D6B9D82B737F72005846EC /* HeroCell.swift */,
 				E4D6B9DF2B73A6FB005846EC /* HeroCellViewModel.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E4D6B9DC2B73A13D005846EC /* Models */ = {
@@ -136,6 +139,14 @@
 				E4D6B9E72B73D435005846EC /* DetailsViewModel.swift */,
 			);
 			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		E4D6B9E92B73DB84005846EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6B9EA2B73DBAC005846EC /* PictureImageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 				E4D6B9E62B73D3D3005846EC /* DetailsViewController.swift in Sources */,
 				E4D6B9C12B737542005846EC /* AppDelegate.swift in Sources */,
 				E4D6B9E02B73A6FB005846EC /* HeroCellViewModel.swift in Sources */,
+				E4D6B9EB2B73DBAC005846EC /* PictureImageView.swift in Sources */,
 				E4D6B9E32B73B04E005846EC /* NetworkManager.swift in Sources */,
 				E4D6B9C32B737542005846EC /* SceneDelegate.swift in Sources */,
 				E4D6B9E82B73D435005846EC /* DetailsViewModel.swift in Sources */,

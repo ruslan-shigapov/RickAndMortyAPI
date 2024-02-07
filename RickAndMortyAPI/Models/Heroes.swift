@@ -13,4 +13,11 @@ struct Hero: Decodable {
     let name: String
     let gender: String
     let image: String
+    let status: String
+    let species: String
+    let origin: Place
+}
+
+struct Place: Decodable {
+    let name: String
 }
