@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import Combine
 
 final class HeroCell: UITableViewCell {
     
     private lazy var pictureImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .cyan
+        imageView.backgroundColor = .secondarySystemBackground
         imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -28,10 +30,17 @@ final class HeroCell: UITableViewCell {
         return stackView
     }()
     
+    private var storage: Set<AnyCancellable> = []
+    
     weak var viewModel: HeroCellViewModel? {
         didSet {
             nameLabel.text = viewModel?.heroName
             genderLabel.text = viewModel?.heroGender
+            viewModel?.$heroPicture
+                .sink { [weak self] in
+                    self?.pictureImageView.image = $0
+                }
+                .store(in: &storage)
         }
     }
 

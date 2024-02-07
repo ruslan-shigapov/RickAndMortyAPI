@@ -5,7 +5,7 @@
 //  Created by Ruslan Shigapov on 07.02.2024.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 enum NetworkError: Error {
@@ -34,6 +34,18 @@ final class NetworkManager {
             .decode(type: Heroes.self, decoder: decoder)
             .mapError { _ in NetworkError.decodingError }
             .map { $0.results }
+            .eraseToAnyPublisher()
+    }
+    
+    func imagePublisher(by url: URL) -> AnyPublisher<UIImage?, NetworkError> {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap {
+                guard let image = UIImage(data: $0.data) else {
+                    throw NetworkError.noData
+                }
+                return image
+            }
+            .mapError { _ in NetworkError.imageNotLoaded }
             .eraseToAnyPublisher()
     }
 }
