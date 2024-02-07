@@ -12,6 +12,7 @@ final class MainViewController: UIViewController {
     private lazy var charactersTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(CharacterCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
 
@@ -53,18 +54,26 @@ extension MainViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        0
+        1
     }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        UITableViewCell()
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "cell") as? CharacterCell
+        return cell ?? UITableViewCell()
     }
 }
 
 // MARK: - Table view delegate
 extension MainViewController: UITableViewDelegate {
     
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        132
+    }
 }
