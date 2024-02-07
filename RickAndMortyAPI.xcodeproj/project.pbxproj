@@ -11,7 +11,10 @@
 		E4D6B9C32B737542005846EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9C22B737542005846EC /* SceneDelegate.swift */; };
 		E4D6B9C52B737542005846EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9C42B737542005846EC /* MainViewController.swift */; };
 		E4D6B9CA2B737543005846EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D6B9C92B737543005846EC /* Assets.xcassets */; };
-		E4D6B9D92B737F72005846EC /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9D82B737F72005846EC /* CharacterCell.swift */; };
+		E4D6B9D92B737F72005846EC /* HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9D82B737F72005846EC /* HeroCell.swift */; };
+		E4D6B9DB2B73A046005846EC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9DA2B73A046005846EC /* MainViewModel.swift */; };
+		E4D6B9DE2B73A15A005846EC /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9DD2B73A15A005846EC /* Hero.swift */; };
+		E4D6B9E02B73A6FB005846EC /* HeroCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9DF2B73A6FB005846EC /* HeroCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +24,10 @@
 		E4D6B9C42B737542005846EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E4D6B9C92B737543005846EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4D6B9CE2B737543005846EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4D6B9D82B737F72005846EC /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		E4D6B9D82B737F72005846EC /* HeroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCell.swift; sourceTree = "<group>"; };
+		E4D6B9DA2B73A046005846EC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		E4D6B9DD2B73A15A005846EC /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		E4D6B9DF2B73A6FB005846EC /* HeroCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D6B9D42B737650005846EC /* Application */,
+				E4D6B9DC2B73A13D005846EC /* Models */,
 				E4D6B9D62B7379BF005846EC /* MainScreen */,
 				E4D6B9D52B737659005846EC /* Resources */,
 			);
@@ -84,6 +91,7 @@
 			children = (
 				E4D6B9D72B737EE7005846EC /* Cell */,
 				E4D6B9C42B737542005846EC /* MainViewController.swift */,
+				E4D6B9DA2B73A046005846EC /* MainViewModel.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -91,9 +99,18 @@
 		E4D6B9D72B737EE7005846EC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E4D6B9D82B737F72005846EC /* CharacterCell.swift */,
+				E4D6B9D82B737F72005846EC /* HeroCell.swift */,
+				E4D6B9DF2B73A6FB005846EC /* HeroCellViewModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E4D6B9DC2B73A13D005846EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6B9DD2B73A15A005846EC /* Hero.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,10 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D6B9DB2B73A046005846EC /* MainViewModel.swift in Sources */,
 				E4D6B9C52B737542005846EC /* MainViewController.swift in Sources */,
 				E4D6B9C12B737542005846EC /* AppDelegate.swift in Sources */,
+				E4D6B9E02B73A6FB005846EC /* HeroCellViewModel.swift in Sources */,
 				E4D6B9C32B737542005846EC /* SceneDelegate.swift in Sources */,
-				E4D6B9D92B737F72005846EC /* CharacterCell.swift in Sources */,
+				E4D6B9DE2B73A15A005846EC /* Hero.swift in Sources */,
+				E4D6B9D92B737F72005846EC /* HeroCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

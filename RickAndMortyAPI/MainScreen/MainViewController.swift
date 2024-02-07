@@ -12,9 +12,11 @@ final class MainViewController: UIViewController {
     private lazy var charactersTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(CharacterCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(HeroCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
+    
+    private let viewModel = MainViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,7 @@ extension MainViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        1
+        viewModel.numberOfRows()
     }
     
     func tableView(
@@ -62,7 +64,8 @@ extension MainViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "cell") as? CharacterCell
+            withIdentifier: "cell") as? HeroCell
+        cell?.viewModel = HeroCellViewModel()
         return cell ?? UITableViewCell()
     }
 }

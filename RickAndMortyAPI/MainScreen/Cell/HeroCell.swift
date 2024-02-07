@@ -1,5 +1,5 @@
 //
-//  CharacterCell.swift
+//  HeroCell.swift
 //  RickAndMortyAPI
 //
 //  Created by Ruslan Shigapov on 07.02.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CharacterCell: UITableViewCell {
+final class HeroCell: UITableViewCell {
     
     private lazy var pictureImageView: UIImageView = {
         let imageView = UIImageView()
@@ -17,19 +17,23 @@ final class CharacterCell: UITableViewCell {
         return imageView
     }()
     
+    private let nameLabel = UILabel()
+    private let genderLabel = UILabel()
+    
     private lazy var infoStackView: UIStackView = {
-        let stackView = UIStackView()
+        let stackView = UIStackView(arrangedSubviews: [nameLabel, genderLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.backgroundColor = .cyan
         stackView.axis = .vertical
-        let nameLabel = UILabel()
-        nameLabel.text = "Rick"
-        stackView.addArrangedSubview(nameLabel)
-        let genderLabel = UILabel()
-        genderLabel.text = "Male"
-        stackView.addArrangedSubview(genderLabel)
+        stackView.spacing = 8
         return stackView
     }()
+    
+    weak var viewModel: HeroCellViewModel? {
+        didSet {
+            nameLabel.text = viewModel?.heroName
+            genderLabel.text = viewModel?.heroGender
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
