@@ -8,10 +8,16 @@
 final class HeroCellViewModel {
     
     var heroName: String {
-        "Rick"
+        hero.name
     }
     
     var heroGender: String {
-        "Male"
+        hero.gender
+    }
+    
+    private let hero: Hero
+    
+    required init(hero: Hero) {
+        self.hero = hero
     }
 }

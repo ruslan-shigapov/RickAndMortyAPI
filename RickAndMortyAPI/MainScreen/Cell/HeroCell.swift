@@ -24,7 +24,7 @@ final class HeroCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: [nameLabel, genderLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 4
         return stackView
     }()
     
@@ -38,6 +38,7 @@ final class HeroCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -47,10 +48,14 @@ final class HeroCell: UITableViewCell {
     private func setupUI() {
         addSubview(pictureImageView)
         addSubview(infoStackView)
-        setConstraints()
+        nameLabel.font = .systemFont(ofSize: 18, weight: .bold)
     }
+}
+
+// MARK: - Layout
+private extension HeroCell {
     
-    private func setConstraints() {
+    func setConstraints() {
         NSLayoutConstraint.activate([
             pictureImageView.widthAnchor.constraint(equalToConstant: 80),
             pictureImageView.topAnchor.constraint(
@@ -62,7 +67,7 @@ final class HeroCell: UITableViewCell {
             pictureImageView.bottomAnchor.constraint(
                 equalTo: bottomAnchor,
                 constant: -16),
-
+            
             infoStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             infoStackView.leadingAnchor.constraint(
                 equalTo: pictureImageView.trailingAnchor,

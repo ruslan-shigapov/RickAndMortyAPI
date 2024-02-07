@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 final class MainViewController: UIViewController {
     
-    private lazy var charactersTableView: UITableView = {
+    private lazy var heroesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(HeroCell.self, forCellReuseIdentifier: "cell")
@@ -17,18 +18,21 @@ final class MainViewController: UIViewController {
     }()
     
     private let viewModel = MainViewModel()
+    
+    private var storage: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setConstraints()
+        bind()
     }
     
     private func setupUI() {
         setupNavigationBar()
-        view.addSubview(charactersTableView)
-        charactersTableView.dataSource = self
-        charactersTableView.delegate = self
+        view.addSubview(heroesTableView)
+        heroesTableView.dataSource = self
+        heroesTableView.delegate = self
     }
     
     private func setupNavigationBar() {
@@ -36,17 +40,13 @@ final class MainViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func setConstraints() {
-         NSLayoutConstraint.activate([
-             charactersTableView.topAnchor.constraint(equalTo: view.topAnchor),
-             charactersTableView.bottomAnchor.constraint(
-                equalTo: view.bottomAnchor),
-             charactersTableView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor),
-             charactersTableView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor)
-         ])
-     }
+    private func bind() {
+        viewModel.$heroes
+            .sink { [weak self] _ in
+                self?.heroesTableView.reloadData()
+            }
+            .store(in: &storage)
+    }
 }
 
 // MARK: - Table view data source
@@ -65,7 +65,7 @@ extension MainViewController: UITableViewDataSource {
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "cell") as? HeroCell
-        cell?.viewModel = HeroCellViewModel()
+        cell?.viewModel = viewModel.getHeroCellViewModel(at: indexPath)
         return cell ?? UITableViewCell()
     }
 }
@@ -78,5 +78,28 @@ extension MainViewController: UITableViewDelegate {
         heightForRowAt indexPath: IndexPath
     ) -> CGFloat {
         132
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+// MARK: - Layout
+private extension MainViewController {
+    
+    func setConstraints() {
+        NSLayoutConstraint.activate([
+            heroesTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            heroesTableView.bottomAnchor.constraint(
+                equalTo: view.bottomAnchor),
+            heroesTableView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor),
+            heroesTableView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor)
+        ])
     }
 }
