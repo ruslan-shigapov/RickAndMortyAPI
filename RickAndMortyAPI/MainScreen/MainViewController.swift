@@ -37,7 +37,17 @@ final class MainViewController: UIViewController {
     
     private func setupNavigationBar() {
         title = "Rick and Morty etc."
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.backgroundColor = UIColor(named: "WeirdBlue")
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+        navBarAppearance.shadowColor = .clear
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.prefersLargeTitles = true
+        navigationBar?.standardAppearance = navBarAppearance
+        navigationBar?.scrollEdgeAppearance = navBarAppearance
     }
     
     private func bind() {

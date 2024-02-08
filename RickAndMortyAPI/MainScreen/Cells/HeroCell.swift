@@ -48,6 +48,7 @@ final class HeroCell: UITableViewCell {
     }
     
     private func setupUI() {
+        backgroundColor = .secondarySystemBackground
         addSubview(pictureImageView)
         addSubview(infoStackView)
         nameLabel.font = .systemFont(ofSize: 18, weight: .bold)

@@ -20,7 +20,7 @@ final class PictureImageView: UIImageView {
     
     private func setupUI() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = .gray
         layer.cornerRadius = 10
         clipsToBounds = true
     }

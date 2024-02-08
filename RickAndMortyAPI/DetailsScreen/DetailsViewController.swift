@@ -46,10 +46,19 @@ final class DetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        setupBackBarButton()
+        view.backgroundColor = UIColor(named: "WeirdBlue")
         view.addSubview(pictureImageView)
         view.addSubview(nameLabel)
         view.addSubview(bioView)
+    }
+    
+    private func setupBackBarButton() {
+        let backBarButton = UIBarButtonItem()
+        backBarButton.title = "Back"
+        backBarButton.tintColor = .white
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.topItem?.backBarButtonItem = backBarButton
     }
 }
 
