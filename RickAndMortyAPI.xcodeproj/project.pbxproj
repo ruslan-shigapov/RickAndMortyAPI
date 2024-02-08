@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E44553BC2B7421ED00F1049F /* BioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44553BB2B7421ED00F1049F /* BioView.swift */; };
 		E4D6B9C12B737542005846EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9C02B737542005846EC /* AppDelegate.swift */; };
 		E4D6B9C32B737542005846EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9C22B737542005846EC /* SceneDelegate.swift */; };
 		E4D6B9C52B737542005846EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6B9C42B737542005846EC /* MainViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E44553BB2B7421ED00F1049F /* BioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioView.swift; sourceTree = "<group>"; };
 		E4D6B9BD2B737542005846EC /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D6B9C02B737542005846EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D6B9C22B737542005846EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D6B9EA2B73DBAC005846EC /* PictureImageView.swift */,
+				E44553BB2B7421ED00F1049F /* BioView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				E4D6B9E32B73B04E005846EC /* NetworkManager.swift in Sources */,
 				E4D6B9C32B737542005846EC /* SceneDelegate.swift in Sources */,
 				E4D6B9E82B73D435005846EC /* DetailsViewModel.swift in Sources */,
+				E44553BC2B7421ED00F1049F /* BioView.swift in Sources */,
 				E4D6B9DE2B73A15A005846EC /* Heroes.swift in Sources */,
 				E4D6B9D92B737F72005846EC /* HeroCell.swift in Sources */,
 			);

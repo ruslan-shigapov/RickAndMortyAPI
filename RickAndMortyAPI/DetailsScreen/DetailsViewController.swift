@@ -19,11 +19,18 @@ final class DetailsViewController: UIViewController {
         return label
     }()
     
+    private let bioView = BioView()
+    
     private var storage: Set<AnyCancellable> = []
     
     weak var viewModel: DetailsViewModel? {
         didSet {
             nameLabel.text = viewModel?.heroName
+            bioView.configure(
+                withGender: viewModel?.heroGender,
+                status: viewModel?.heroStatus,
+                species: viewModel?.heroSpecies,
+                origin: viewModel?.heroOrigin)
             viewModel?.$heroPicture
                 .sink { [weak self] in
                     self?.pictureImageView.image = $0
@@ -42,6 +49,7 @@ final class DetailsViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(pictureImageView)
         view.addSubview(nameLabel)
+        view.addSubview(bioView)
     }
 }
 
@@ -60,7 +68,17 @@ private extension DetailsViewController {
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nameLabel.topAnchor.constraint(
                 equalTo: pictureImageView.bottomAnchor,
-                constant: 16)
+                constant: 16),
+            
+            bioView.topAnchor.constraint(
+                equalTo: nameLabel.bottomAnchor,
+                constant: 16),
+            bioView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 32),
+            bioView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: -32)
         ])
     }
 }
