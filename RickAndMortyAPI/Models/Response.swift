@@ -1,12 +1,17 @@
 //
-//  Heroes.swift
+//  Response.swift
 //  RickAndMortyAPI
 //
 //  Created by Ruslan Shigapov on 07.02.2024.
 //
 
-struct Heroes: Decodable {
+struct Response: Decodable {
+    let info: Info
     let results: [Hero]
+}
+
+struct Info: Decodable {
+    let next: String?
 }
 
 struct Hero: Decodable {

@@ -39,7 +39,9 @@ final class MainViewController: UIViewController {
         title = "Rick and Morty etc."
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.backgroundColor = UIColor(named: "WeirdBlue")
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
         navBarAppearance.largeTitleTextAttributes = [
             .foregroundColor: UIColor.white
         ]
@@ -52,6 +54,7 @@ final class MainViewController: UIViewController {
     
     private func bind() {
         viewModel.$heroes
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.heroesTableView.reloadData()
             }
@@ -98,6 +101,14 @@ extension MainViewController: UITableViewDelegate {
         let detailsVC = DetailsViewController()
         detailsVC.viewModel = viewModel.getDetailsViewModel(at: indexPath)
         navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
+        viewModel.getExtraHeroes(afterRowAt: indexPath)
     }
 }
 

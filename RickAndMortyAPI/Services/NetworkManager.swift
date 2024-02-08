@@ -19,21 +19,19 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     
-    private let url = URL(string: "https://rickandmortyapi.com/api/character")!
     private let decoder = JSONDecoder()
     
     private init() {}
     
-    func heroesPublisher() -> AnyPublisher<[Hero], NetworkError> {
+    func responsePublisher(by url: URL) -> AnyPublisher<Response, NetworkError> {
         URLSession.shared.dataTaskPublisher(for: url)
             .mapError { NetworkError.sessionError($0) }
             .tryMap {
                 guard !$0.data.isEmpty else { throw NetworkError.noData }
                 return $0.data
             }
-            .decode(type: Heroes.self, decoder: decoder)
+            .decode(type: Response.self, decoder: decoder)
             .mapError { _ in NetworkError.decodingError }
-            .map { $0.results }
             .eraseToAnyPublisher()
     }
     

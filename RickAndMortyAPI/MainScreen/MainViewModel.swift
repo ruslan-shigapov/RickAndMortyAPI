@@ -12,12 +12,37 @@ final class MainViewModel {
     
     @Published var heroes: [Hero] = []
     
+    private var offset = 20
+    private var nextPage: String? = nil
+    
+    private var link: URL {
+        URL(string: nextPage ?? "https://rickandmortyapi.com/api/character")!
+    }
+    
     private var subscription: AnyCancellable? = nil
     
     init() {
-        subscription = NetworkManager.shared.heroesPublisher()
-            .replaceError(with: [])
-            .assign(to: \.heroes, on: self)
+        getHeroes()
+    }
+    
+    func getHeroes() {
+        subscription = NetworkManager.shared.responsePublisher(by: link)
+            .sink { completion in
+                switch completion {
+                case .finished: break
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { [weak self] in
+                self?.heroes.append(contentsOf: $0.results)
+                self?.nextPage = $0.info.next
+            }
+    }
+    
+    func getExtraHeroes(afterRowAt indexPath: IndexPath) {
+        if indexPath.row == (heroes.count - 1) {
+            getHeroes()
+        }
     }
     
     func numberOfRows() -> Int {
