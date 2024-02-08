@@ -24,25 +24,7 @@ final class BioView: UIView {
         ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.alignment = .leading
-        return stackView
-    }()
-    
-    private let genderValueLabel = UILabel()
-    private let statusValueLabel = UILabel()
-    private let speciesValueLabel = UILabel()
-    private let originValueLabel = UILabel()
-    
-    private lazy var valuesStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            genderValueLabel,
-            statusValueLabel,
-            speciesValueLabel,
-            originValueLabel
-        ])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .trailing
+        stackView.alignment = .center
         return stackView
     }()
     
@@ -60,7 +42,6 @@ final class BioView: UIView {
     // MARK: Private Methods
     private func setupUI() {
         addSubview(detailsStackView)
-        addSubview(valuesStackView)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -71,14 +52,10 @@ final class BioView: UIView {
         species: String?,
         origin: String?
     ) {
-        genderLabel.text = "Gender:"
-        statusLabel.text = "Status:"
-        speciesLabel.text = "Species:"
-        originLabel.text = "Origin:"
-        genderValueLabel.text = gender
-        statusValueLabel.text = status
-        speciesValueLabel.text = species
-        originValueLabel.text = origin
+        genderLabel.text = "Gender: \(gender ?? "")"
+        statusLabel.text = "Status: \(status ?? "")"
+        speciesLabel.text = "Species: \(species ?? "")"
+        originLabel.text = "Origin: \(origin ?? "")"
     }
 }
 
@@ -89,9 +66,8 @@ private extension BioView {
         NSLayoutConstraint.activate([
             detailsStackView.topAnchor.constraint(equalTo: topAnchor),
             detailsStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            
-            valuesStackView.topAnchor.constraint(equalTo: topAnchor),
-            valuesStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            detailsStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            detailsStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }
