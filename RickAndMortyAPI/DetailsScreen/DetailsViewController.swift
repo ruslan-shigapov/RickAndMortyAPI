@@ -80,15 +80,10 @@ private extension DetailsViewController {
                 equalTo: pictureImageView.bottomAnchor,
                 constant: 16),
             
+            bioView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bioView.topAnchor.constraint(
                 equalTo: nameLabel.bottomAnchor,
-                constant: 16),
-            bioView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor,
-                constant: 32),
-            bioView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor,
-                constant: -32)
+                constant: 16)
         ])
     }
 }
